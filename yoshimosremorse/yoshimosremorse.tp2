@@ -5,46 +5,53 @@ README ~yoshimosremorse/readme-yr.html~
 VERSION ~v3.3~	
 	 
 ALWAYS
-  INCLUDE ~YoshimosRemorse/lib/eet.tph~
+
   INCLUDE ~YoshimosRemorse/lib/functions.tph~  
-  INCLUDE ~YoshimosRemorse/lib/extra_regexp_vars.tph~
+  
   ACTION_IF (GAME_IS ~eet~) BEGIN
     OUTER_SET bg2_chapter = 12
+    OUTER_TEXT_SPRINT PREFIX_AREA_BG1 ~BG~
+    OUTER_TEXT_SPRINT PREFIX_AREA_IWD ~ID~
   END ELSE BEGIN
     OUTER_SET bg2_chapter = 0
+    OUTER_TEXT_SPRINT PREFIX_AREA_BG1 ~AR~
+    OUTER_TEXT_SPRINT PREFIX_AREA_IWD ~AR~
   END
   OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
     OUTER_SET bg2_chapter = bg2_chapter + 1
     OUTER_SPRINT name_source ~bg2_chapter_%i%~
     OUTER_SET EVAL ~%name_source%~ = bg2_chapter
   END
+  
   ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+  
     OUTER_SPRINT ~YOSHIMO_RACE_WRAITH~ ~ChangeRace("Yoshimo",WRAITH)~
+    OUTER_SPRINT ~tra_location~ ~weidu_external/YoshimosRemorse/language~
+    
+    // convert strings to UTF-8 for BGEE/BG2EE
+    ACTION_DEFINE_ARRAY cdreload BEGIN setup END
+    ACTION_DEFINE_ARRAY cdnoconvert BEGIN install END // List of tra files that contain ONLY strings for the WeiDU installer and NOT game content
+    LAF HANDLE_CHARSETS 
+      INT_VAR 
+        infer_charsets = 1 
+      STR_VAR 
+        tra_path = ~YoshimosRemorse/language~ 
+        out_path = ~weidu_external/YoshimosRemorse/language~
+        noconvert_array = cdnoconvert 
+        reload_array = cdreload 
+    END
+    
   END ELSE BEGIN
+  
     OUTER_SPRINT ~YOSHIMO_RACE_WRAITH~ ~~
+    OUTER_SPRINT ~tra_location~ ~YoshimosRemorse/language~
+    
   END
+  
 END
 
-AUTO_TRA ~YoshimosRemorse\%s~
+AUTO_TRA ~%tra_location%/%s~
 
-ALWAYS
-  // No exception, everything needs to be converted
-  ACTION_DEFINE_ARRAY yremorsenoconvert BEGIN install END
-
-  // any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
-  ACTION_DEFINE_ARRAY yremorsereload BEGIN setup END
-
-  LAF HANDLE_CHARSETS
-    INT_VAR
-      infer_charsets = 1
-    STR_VAR
-      tra_path = EVAL ~YoshimosRemorse/language~
-      noconvert_array = yremorsenoconvert
-      reload_array = yremorsereload
-  END
-END
-
-AUTO_TRA ~YoshimosRemorse\Language\%s~
 LANGUAGE ~English~ ~English~ 
   ~YoshimosRemorse/Language/English/install.tra~
   ~YoshimosRemorse/Language/English/setup.tra~
