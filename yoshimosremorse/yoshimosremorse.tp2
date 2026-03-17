@@ -2,7 +2,7 @@ BACKUP ~weidu_external\yoshimosremorse\backup~
 //AUTHOR ~Lava Del'Vortel and jmaeq~
 SUPPORT ~https://www.gibberlings3.net/forums/forum/208-yoshimos-remorse/~
 README ~yoshimosremorse/readme-yr.html~
-VERSION ~v3.2~	
+VERSION ~v3.3~	
 	 
 ALWAYS
   INCLUDE ~YoshimosRemorse/lib/eet.tph~
