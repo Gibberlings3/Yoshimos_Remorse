@@ -29,7 +29,7 @@ AUTO_TRA ~YoshimosRemorse\%s~
 
 ALWAYS
   // No exception, everything needs to be converted
-  ACTION_DEFINE_ARRAY yremorsenoconvert BEGIN END
+  ACTION_DEFINE_ARRAY yremorsenoconvert BEGIN install END
 
   // any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
   ACTION_DEFINE_ARRAY yremorsereload BEGIN setup END
