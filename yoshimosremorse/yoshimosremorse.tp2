@@ -46,16 +46,23 @@ END
 
 AUTO_TRA ~YoshimosRemorse\Language\%s~
 LANGUAGE ~English~ ~English~ 
+  ~YoshimosRemorse/Language/English/install.tra~
   ~YoshimosRemorse/Language/English/setup.tra~
 LANGUAGE ~Russian by Arkie~ ~Russian~ 
+  ~YoshimosRemorse/Language/English/install.tra~
   ~YoshimosRemorse/Language/English/setup.tra~
+  ~YoshimosRemorse/Language/Russian/install.tra~
   ~YoshimosRemorse/Language/Russian/setup.tra~
 LANGUAGE ~Polish by GoForTheEyes~ ~Polish~ 
+  ~YoshimosRemorse/Language/English/install.tra~
   ~YoshimosRemorse/Language/English/setup.tra~
+  ~YoshimosRemorse/Language/Polish/install.tra~
   ~YoshimosRemorse/Language/Polish/setup.tra~
 LANGUAGE ~Simplified Chinese by Yoshimo0417~ ~Schinese~ 
+  ~YoshimosRemorse/Language/English/install.tra~
   ~YoshimosRemorse/Language/English/setup.tra~
   ~YoshimosRemorse/Language/Schinese/install.tra~
+  ~YoshimosRemorse/Language/Schinese/setup.tra~
 
 BEGIN @1
   REQUIRE_PREDICATE (GAME_IS ~tob BGT bg2ee eet~) @2

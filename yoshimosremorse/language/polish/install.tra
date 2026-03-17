@@ -1,0 +1,10 @@
+// this tra file contains strings for the installer and will be kept encoded as UTF8
+
+@1 = ~Skrucha Yoshimo~
+@2 = ~Ten komponent musi byc zainstalowany do klasycznej wersji BG2, BGT, BG2:EE lub EET.~
+@3 = ~Pliki Wilsona wykryte - przypisz Wilsonowi odrebne pliki banterow (BWILSON & BWILSO25)~
+
+@58 = ~Ten komponent wymaga instalacji Skruchy Yoshimo~
+@59 = ~Lowca nagrod 10 / Wojownik~
+@60 = ~Lowca nagrod 13 / Wojownik~
+@61 = ~Skrucha Yoshimo: dwuklasowanie na Wojownika/Zlodzieja (tylko jesli Yoshimo nie zostal wczesniej dolaczony do druzyny)~
